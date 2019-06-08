@@ -1,0 +1,33 @@
+[package]
+name = "embedded-gps"
+description = "A wrapper around nmea and embedded-hal to support GPS devices"
+version = "0.1.0"
+authors = ["Ryan Kurte <ryankurte@gmail.com>"]
+edition = "2018"
+license = "MPL-2.0"
+
+[features]
+linux = [ "linux-embedded-hal", "serial-unix", "serial-core" ]
+util = [ "simplelog" ]
+default = []
+
+[dependencies]
+embedded-hal = "0.2.3"
+nmea = "0.0.8"
+nb = "0.1.2"
+log = "0.4.6"
+
+linux-embedded-hal = { version = "0.2.2", optional = true }
+serial-unix = { version = "0.4.0", optional = true }
+structopt = { version = "0.2.15", optional = true }
+simplelog = { version = "0.5.3", optional = true }
+serial-core = { version = "0.4.0", optional = true }
+
+
+[[bin]]
+name = "gps-util"
+path = "./src/util.rs"
+required-features = [ "linux", "util" ]
+
+[patch.crates-io]
+linux-embedded-hal = { git = "https://github.com/rnestler/linux-embedded-hal.git", branch = "implement-serial" }
