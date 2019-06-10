@@ -7,7 +7,7 @@ edition = "2018"
 license = "MPL-2.0"
 
 [features]
-linux = [ "linux-embedded-hal", "serial-unix", "serial-core" ]
+linux = [ "linux-embedded-hal" ]
 util = [ "simplelog" ]
 default = []
 
@@ -18,10 +18,8 @@ nb = "0.1.2"
 log = "0.4.6"
 
 linux-embedded-hal = { version = "0.2.2", optional = true }
-serial-unix = { version = "0.4.0", optional = true }
 structopt = { version = "0.2.15", optional = true }
 simplelog = { version = "0.5.3", optional = true }
-serial-core = { version = "0.4.0", optional = true }
 
 
 [[bin]]

@@ -5,12 +5,8 @@ use std::io::{Error, ErrorKind};
 
 extern crate linux_embedded_hal;
 use linux_embedded_hal::Serial;
-
-extern crate serial_unix;
-use serial_unix::{TTYPort};
-
-extern crate serial_core;
-use serial_core::{SerialDevice, SerialPortSettings, BaudRate};
+use linux_embedded_hal::serial_unix::{TTYPort};
+use linux_embedded_hal::serial_core::{SerialDevice, SerialPortSettings, BaudRate};
 
 use crate::Gps;
 
